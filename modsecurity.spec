@@ -6,7 +6,7 @@
 #
 Name     : modsecurity
 Version  : 3.0.4
-Release  : 2
+Release  : 3
 URL      : https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.4/modsecurity-v3.0.4.tar.gz
 Source0  : https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.4/modsecurity-v3.0.4.tar.gz
 Source1  : https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.4/modsecurity-v3.0.4.tar.gz.asc
@@ -17,7 +17,6 @@ Requires: modsecurity-bin = %{version}-%{release}
 Requires: modsecurity-lib = %{version}-%{release}
 Requires: modsecurity-license = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : buildreq-golang
 BuildRequires : curl-dev
 BuildRequires : doxygen
 BuildRequires : nghttp2-dev
@@ -77,15 +76,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587593188
+export SOURCE_DATE_EPOCH=1647880204
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %configure --disable-static --disable-examples
 make  %{?_smp_mflags}
 
@@ -94,10 +93,10 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1587593188
+export SOURCE_DATE_EPOCH=1647880204
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/modsecurity
 cp %{_builddir}/modsecurity-v3.0.4/LICENSE %{buildroot}/usr/share/package-licenses/modsecurity/7df059597099bb7dcf25d2a9aedfaf4465f72d8d

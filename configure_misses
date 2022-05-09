@@ -1,8 +1,8 @@
 Configure miss: if libcurl is linked with gnutls
-Configure miss: libxml2 config script
-Configure miss: string usability
-Configure miss: string presence
-Configure miss: string
-Configure miss: iostream usability
-Configure miss: iostream presence
 Configure miss: iostream
+Configure miss: iostream presence
+Configure miss: iostream usability
+Configure miss: libxml2 config script
+Configure miss: string
+Configure miss: string presence
+Configure miss: string usability

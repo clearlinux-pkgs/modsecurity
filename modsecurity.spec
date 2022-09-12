@@ -6,7 +6,7 @@
 #
 Name     : modsecurity
 Version  : 3.0.7
-Release  : 5
+Release  : 6
 URL      : https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.7/modsecurity-v3.0.7.tar.gz
 Source0  : https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.7/modsecurity-v3.0.7.tar.gz
 Source1  : https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.7/modsecurity-v3.0.7.tar.gz.asc

@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xF2FC4E45883BCBA4 (Martin.Vierula@trustwave.com)
 #
 Name     : modsecurity
-Version  : 3.0.7
-Release  : 6
-URL      : https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.7/modsecurity-v3.0.7.tar.gz
-Source0  : https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.7/modsecurity-v3.0.7.tar.gz
-Source1  : https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.7/modsecurity-v3.0.7.tar.gz.asc
+Version  : 3.0.8
+Release  : 7
+URL      : https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.8/modsecurity-v3.0.8.tar.gz
+Source0  : https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.8/modsecurity-v3.0.8.tar.gz
+Source1  : https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.8/modsecurity-v3.0.8.tar.gz.asc
 Summary  : ModSecurity API
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause
@@ -68,15 +68,15 @@ license components for the modsecurity package.
 
 
 %prep
-%setup -q -n modsecurity-v3.0.7
-cd %{_builddir}/modsecurity-v3.0.7
+%setup -q -n modsecurity-v3.0.8
+cd %{_builddir}/modsecurity-v3.0.8
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1654016527
+export SOURCE_DATE_EPOCH=1663172807
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -96,11 +96,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1654016527
+export SOURCE_DATE_EPOCH=1663172807
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/modsecurity
-cp %{_builddir}/modsecurity-v3.0.7/LICENSE %{buildroot}/usr/share/package-licenses/modsecurity/7df059597099bb7dcf25d2a9aedfaf4465f72d8d
-cp %{_builddir}/modsecurity-v3.0.7/others/libinjection/COPYING %{buildroot}/usr/share/package-licenses/modsecurity/2f52f7e673436d231eb560ccfc057715bc069c67
+cp %{_builddir}/modsecurity-v%{version}/LICENSE %{buildroot}/usr/share/package-licenses/modsecurity/7df059597099bb7dcf25d2a9aedfaf4465f72d8d
+cp %{_builddir}/modsecurity-v%{version}/others/libinjection/COPYING %{buildroot}/usr/share/package-licenses/modsecurity/2f52f7e673436d231eb560ccfc057715bc069c67
 %make_install
 
 %files
@@ -142,7 +142,7 @@ cp %{_builddir}/modsecurity-v3.0.7/others/libinjection/COPYING %{buildroot}/usr/
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libmodsecurity.so.3
-/usr/lib64/libmodsecurity.so.3.0.7
+/usr/lib64/libmodsecurity.so.3.0.8
 
 %files license
 %defattr(0644,root,root,0755)
